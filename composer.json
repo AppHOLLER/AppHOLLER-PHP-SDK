@@ -1,6 +1,7 @@
 {
     "name": "rainmakerlabs/holler-php-sdk",
     "description": "PHP SDK for HOLLER",
+    "license": "MIT",
     "require": {
         "php": ">=5.4.0",
         "ext-curl": "*",
