@@ -29,7 +29,7 @@ Alternative Method
 ------------------
 
 If you don't want to use Composer, you can include the ```autoload.php```
-file in your code to automatically load the Parse SDK classes.
+file in your code to automatically load the Holler SDK classes.
 
 ```php
 require 'autoload.php';
