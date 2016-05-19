@@ -26,6 +26,8 @@ class Subscriber extends BaseModel
         "email",
         "first_name",
         "last_name",
+        "device_type",
+        "device_token",
         "is_active",
         "created_at",
         "phone",
@@ -74,6 +76,26 @@ class Subscriber extends BaseModel
     public function setLastName($value)
     {
         $this->request_attribute_data['last_name'] = $value;
+        return $this;
+    }
+
+    /**
+     * @param $value
+     * @return $this
+     */
+    public function setDeviceType($value)
+    {
+        $this->request_attribute_data['device_type'] = $value;
+        return $this;
+    }
+
+    /**
+     * @param $value
+     * @return $this
+     */
+    public function setDeviceToken($value)
+    {
+        $this->request_attribute_data['device_token'] = $value;
         return $this;
     }
 
