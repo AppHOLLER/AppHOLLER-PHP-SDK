@@ -239,6 +239,17 @@ class Communication extends BaseModel
         return $response->communication_id;
     }
 
+    public function sendPushNotification($subscribers, $subject, $content, $deeplink = '')
+    {
+        $params = array();
+        $params['subscriber_id'] = $subscribers;
+        $params['content'] = array('subject'=>$subject, 'content'=>$content);
+        $params['deeplink'] = $deeplink;
+
+        $response = HollerClient::_request('POST', 'communication/push_notification', $params);
+        return $response;
+    }
+
 
 
 }
