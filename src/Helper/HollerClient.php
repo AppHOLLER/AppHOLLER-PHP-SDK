@@ -197,8 +197,12 @@ final class HollerClient
 
         $data = is_string($data) ? $data : json_encode($data);
         if (self::getDebugMode()) {
+            if(class_exists('Log')){
+                \Log::debug($data);
+            }else{
             error_log($data);
         }
+    }
     }
 
 

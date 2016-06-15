@@ -176,9 +176,14 @@ class Subscriber extends BaseModel
             $this->syncAttributes($data);
             $this->setRequestAttributeData($data);
         }
-        $data_register = $this->getRequestAttributeData();
-        $response = HollerClient::_request('PUT', 'subscribers/'.$id, $data_register);
+
+        $data = $this->getRequestAttributeData();
+        if(count($data)){ // check is there any update data, then it will update, or not it return model data only
+            $response = HollerClient::_request('PUT', 'subscribers/'.$id, $data);
         return $this->buildModel($response);
+        }else{
+            return $this->find($id);
+        }
     }
 
     /**
@@ -229,14 +234,13 @@ class Subscriber extends BaseModel
     /**
      *
      * Get list of subscribers without paging
-     *
+     * @param array $params
      * @return \Rainmakerlabs\Holler\Support\Collection
      * @throws \Exception
      * @throws \Rainmakerlabs\Holler\Exceptions\HollerExceptions
      */
-    public function all()
+    public function all($params = array())
     {
-        $params = [];
         $response = HollerClient::_request('GET', 'subscribers', $params);
         return $this->buildCollection($response);
     }
