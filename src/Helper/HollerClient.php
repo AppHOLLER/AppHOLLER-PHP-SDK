@@ -27,7 +27,7 @@ final class HollerClient
     /**
      * Constant for the API Server Host Address.
      */
-    const API_URL = 'http://dev.holler.rainmaker-labs.com/api';//'http://appholler.com/api';
+    const API_URL = 'http://staging.holler.rainmaker-labs.com/api';//'http://appholler.com/api';
 
     /**
      * Constant for the API Service version.
