@@ -17,11 +17,6 @@ use Rainmakerlabs\Holler\Exceptions\PermissionDenyException;
 use Rainmakerlabs\Holler\Exceptions\UnknownErrorHollerExceptions;
 use Rainmakerlabs\Holler\Exceptions\WrongParameterException;
 
-/**
- * ParseClient - Main class for Parse initialization and communication.
- *
- * @author Fosco Marotto <fjm@fb.com>
- */
 final class HollerClient
 {
     /**
