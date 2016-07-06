@@ -265,7 +265,7 @@ class Subscriber extends BaseModel
 
     public function updateDeviceToken($subscriber_id,array $data)
     {
-        return  HollerClient::_request('POST','subscribers/'.$subscriber_id.'/update_device_token',
+        return  HollerClient::_request('POST','subscribers/'.$subscriber_id.'/device_token',
             $data);
     }
 }
