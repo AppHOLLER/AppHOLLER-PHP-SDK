@@ -297,7 +297,7 @@ final class HollerClient
             throw new HollerExceptions(curl_error($rest), curl_errno($rest));
 
         if (strpos($contentType, 'text/html') !== false
-//			&& !self::getSilentMode()
+			&& !self::getSilentMode()
         ) {
             $data_string = is_string($data) ? $data : json_encode($data);
             $exception = new HollerExceptions('Status: ' . ($status) . ' - Bad Request. ' . $data_string, -1);
