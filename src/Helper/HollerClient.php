@@ -344,10 +344,12 @@ final class HollerClient
          * private static $permissionDenyExceptionCode = [503];
          */
 
-        if (!self::getSilentMode() && isset($data_response->error) && $data_response->error == true) {
+        if (!self::getSilentMode()
+                && (isset($data_response->error) && $data_response->error == true
+                    || isset($data_response->status) && $data_response->status != 200)) {
             $message = json_encode($data_response);//is_string($data_response->detail)?$data_response->detail:json_encode($data_response->detail);
 
-            $status_code = $data_response->status_code;
+            $status_code = $data_response->status;
             if (in_array($status_code, self::$authenticationExceptionCode)) {
                 $exception = new AuthenticationException($message, $status_code);
             } elseif (in_array($status_code, self::$communicationExceptionCode)) {
