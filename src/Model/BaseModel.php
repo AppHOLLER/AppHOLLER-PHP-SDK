@@ -252,6 +252,17 @@ class BaseModel
 
 
     /**
+     * Checking a given attribute on the model.
+     *
+     * @param $key
+     * @return bool
+     */
+    public function __isset($key)
+    {
+        return isset($this->getAttribute($key));
+    }
+
+    /**
      * Dynamically set attributes on the model.
      *
      * @param  string $key
