@@ -259,7 +259,7 @@ class BaseModel
      */
     public function __isset($key)
     {
-        return isset($this->getAttribute($key));
+        return ! is_null($this->getAttribute($key));
     }
 
     /**
