@@ -90,12 +90,6 @@ $subscriber_model->setInfo($subscriber_info);
 // register subscriber
 $subscriber = $subscriber_model->register();
 
-
-// ======= Login subsciber ======
-
-$subscriber_model = $hollerSDK->subscriber();
-$subscriber = $subscriber_model->login(["username"=>"yourusername"]);
-
 // ======= Update subscriber ======
 
 $subscriber_model = $hollerSDK->subscriber();
@@ -112,8 +106,33 @@ $subscriber = $subscriber_model->update($subscriber_id);
 
 $subscriber_model = $hollerSDK->subscriber();
 $subscriber_list = $subscriber_model->paginate($page);
-
 $all_subscribers = $subscriber_model->all();
+
+
+// ====== Get subscriber communication history ========
+
+$subscriber_model = $hollerSDK->subscriber();
+$result = $subscriber_model->getCommunications($subscriber_id);
+
+// Filter only push
+$push = $subscriber_model->getCommunications($subscriber_id, 'push');
+// Filter only sms
+$sms = $subscriber_model->getCommunications($subscriber_id, 'sms');
+// Filter only email
+$email = $subscriber_model->getCommunications($subscriber_id, 'email');
+
+
+// ====== Delete subscriber communication by communication id ========
+
+$subscriber_model = $hollerSDK->subscriber();
+$communicationId = [1, 2, 3];
+$result = $subscriber_model->deleteCommunications($subscriber_id, $communicationId);
+
+
+// ====== Get total subscriber ========
+
+$subscriber_model = $hollerSDK->subscriber();
+$result = $subscriber_model->total();
 
 
 ```
