@@ -22,12 +22,12 @@ final class HollerClient
     /**
      * Constant for the API Server Host Address.
      */
-    const API_URL = 'https://www.appholler.com/api';
+    const API_URL = 'https://www.appholler.com/api/v2';
 
     /**
      * Constant for the API Service version.
      */
-    const API_VERSION = '1.0';
+    const API_VERSION = '2.0';
 
 
     /**
@@ -290,11 +290,11 @@ final class HollerClient
         if (curl_errno($rest)) {
             throw new HollerExceptions(curl_error($rest), curl_errno($rest));
         }
-
         curl_close($rest);
 
-        if (FALSE == $response)
+        if (false == $response) {
             throw new HollerExceptions(curl_error($rest), curl_errno($rest));
+        }
 
         if (strpos($contentType, 'text/html') !== false
 			&& !self::getSilentMode()

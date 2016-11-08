@@ -199,7 +199,6 @@ class Communication extends BaseModel
         $params['data'] = json_encode($this->getRequestAttributeData());
         $params['cover_image'] = $this->getCoverImg();
         $response = HollerClient::_request('POST_WITH_FILE', 'communications/create', $params);
-
         $this->setAttribute('id', $response->communication_id);
         return $response->communication_id;
     }

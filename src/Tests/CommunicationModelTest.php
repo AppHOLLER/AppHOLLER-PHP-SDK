@@ -43,10 +43,13 @@ class CommunicationModelTest extends Holler_PHPUnit_Framework_TestCase
 
         $time_to_send  = date("Y-m-d H:i:s",strtotime("+5 minutes"));
         $communication = self::$holler->communication();
-        $communication->setName("Name nè ". $time_to_send );
-        $communication->setDescription("this is a short description");
-        $communication->setChannel('email',
-            ['subject'=>'subject here '.$time_to_send,'content'=>'asdfasdf','from'=>"nghia.mai@rainmaker-labs.com"]);
+        $communication->setName("This is name ". $time_to_send );
+        $communication->setDescription("This is a short description");
+        $communication->setChannel('email', [
+                                        'subject' => 'This is subject ' . $time_to_send,
+                                        'content' => 'This is content',
+                                        'from' => 'tung.huynh@rainmaker-labs.com'
+        ]);
 //    $communication->setTime(true);
         $target = self::$holler->communicationTarget();
 
@@ -58,7 +61,8 @@ class CommunicationModelTest extends Holler_PHPUnit_Framework_TestCase
 
         $communication->setTarget($target);
 
-        $cfile = new \CURLFile('/Users/nguyentantam/Documents/workspace/RML/holler-php-sdk/tea-battery_00293536.jpg','image/jpeg','test_name.jpg');
+        $cfile = new \CURLFile('C:\Users\kei\Pictures\Camera Roll\1.jpg','image/jpeg','test_name
+        .jpg');
 
 
         $cover_img = $cfile;
@@ -105,7 +109,7 @@ class CommunicationModelTest extends Holler_PHPUnit_Framework_TestCase
 
 //        $communication->setTarget($target);
 
-        $cover_img = new \CURLFile('/Users/nguyentantam/Documents/workspace/RML/holler-php-sdk/tea-battery_00293536.jpg','image/jpeg','test_name');
+        $cover_img = new \CURLFile('C:\Users\kei\Pictures\Camera Roll\1.jpg','image/jpeg','test_name');
 //
 //
 //        $cover_img = $cfile;

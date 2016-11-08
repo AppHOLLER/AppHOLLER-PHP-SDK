@@ -33,8 +33,8 @@ class ApplicationModelTest extends Holler_PHPUnit_Framework_TestCase
 
     public function testApplicationModel()
     {
-        HollerClient::setMasterToken('09016e833e1f78b57de866dddfec4f4d7a337173');
-        $application = self::$holler->application()->find("89225f30f4494dd1302b52d427ab8a98640ff6e3");
+//        HollerClient::setMasterToken('09016e833e1f78b57de866dddfec4f4d7a337173');
+        $application = self::$holler->application()->find("d2798c58f6fa2bae5c53a177722d93b43b7fde2a");
         $applications = self::$holler->application()->all();
         $this->assertInstanceOf('Rainmakerlabs\Holler\Model\Application',$application);
         $this->assertInstanceOf('Rainmakerlabs\Holler\Support\Collection',$applications);

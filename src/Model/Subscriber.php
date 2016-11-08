@@ -188,20 +188,6 @@ class Subscriber extends BaseModel
 
     /**
      *
-     * Login an exist subscriber
-     *
-     * @param $credentials
-     * @return static
-     * @throws \Exception
-     * @throws \Rainmakerlabs\Holler\Exceptions\HollerExceptions
-     */
-    public function login($credentials)
-    {
-        $response = HollerClient::_request('POST', 'subscribers/login', $credentials);
-        return $this->buildModel($response);
-    }
-    /**
-     *
      * Get detail subscriber from id
      *
      * @param $id
@@ -267,5 +253,31 @@ class Subscriber extends BaseModel
     {
         return  HollerClient::_request('POST','subscribers/'.$subscriber_id.'/device_token',
             $data);
+    }
+
+    public function getCommunications($subscriber_id, $channel = '')
+    {
+        $data = [];
+        if (!empty($channel)) {
+            $data['channel'] = $channel;
+        }
+        $response = HollerClient::_request('GET', 'subscribers/' . $subscriber_id . '/communications', $data);
+        return new SubscriberCommunication($response);
+    }
+
+    public function deleteCommunications($subscriber_id, array $communicationIds)
+    {
+        $data = [
+            'communication_id' => $communicationIds,
+            'status' => 'deleted'
+        ];
+        $response = HollerClient::_request('POST', 'subscribers/' . $subscriber_id . '/communications', $data);
+        return $response;
+    }
+
+    public function total()
+    {
+        $response = HollerClient::_request('GET', 'subscribers/total');
+        return $response;
     }
 }
