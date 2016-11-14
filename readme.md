@@ -11,7 +11,7 @@ Installation
 ```json
 {
     "require": {
-        "rainmakerlabs/holler-php-sdk" : "dev-master"
+        "rainmakerlabs/holler-php-sdk" : "v1.*"
     }
 }
 ```

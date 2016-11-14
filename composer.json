@@ -16,6 +16,10 @@
         {
             "name": "Tan Tam Nguyen",
             "email": "tantam.nguyen@rainmaker-labs.com"
+        },
+        {
+            "name": "Tung Huynh",
+            "email": "tung.huynh@rainmaker-labs.com"
         }
     ],
     "autoload": {
