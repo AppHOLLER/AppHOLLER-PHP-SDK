@@ -31,6 +31,13 @@ final class HollerClient
 
 
     /**
+     * Holler API Server Host Address
+     *
+     * @var string
+     */
+    private static $apiUrl;
+
+    /**
      * application id on Holler
      *
      * @var string
@@ -181,9 +188,19 @@ final class HollerClient
      *
      * @return string
      */
+    public static function setAPIUrl($url)
+    {
+        self::$apiUrl = $url;
+    }
+
+    /**
+     * Get remote Holler API url.
+     *
+     * @return string
+     */
     public static function getAPIUrl()
     {
-        return self::API_URL . '/';
+        return rtrim((self::$apiUrl ?: self::API_URL), '/') . '/';
     }
 
 
