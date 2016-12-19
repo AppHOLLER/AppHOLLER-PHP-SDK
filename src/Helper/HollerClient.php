@@ -309,7 +309,7 @@ final class HollerClient
         }
         curl_close($rest);
 
-        if (false == $response) {
+        if (false === $response) {
             throw new HollerExceptions(curl_error($rest), curl_errno($rest));
         }
 
